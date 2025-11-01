@@ -92,3 +92,51 @@ var cars = CarRepository.GetCars();
 //CarRepository.PrintCars([result1]);
 
 #endregion
+
+
+#region #4 last and last or default
+
+//var result = cars.Last(cars => cars.Make == "Ford");
+//CarRepository.PrintCars([result]);
+
+
+//var result = (from c in cars
+//              where c.Make == "Ford"
+//              select c)
+//              .LastOrDefault();
+
+//var result = cars.LastOrDefault(cars => cars.Make == "Ford");
+
+//CarRepository.PrintCars([result]);
+
+//var defalutcar = new Car(Id: 0, Make: "No Make", Model: "No Model", ManufactureYear: 0, VIN: "No VIN",  Color: "red", MaxSpeed: 290);
+
+//var result = cars.LastOrDefault(cars => cars.Make == "Fordx",defalutcar);
+
+//CarRepository.PrintCars([result]);
+
+
+#endregion
+
+
+#region #5 single and single or default
+
+//var result = cars.Single(c => c.Make == "Volvo" && c.VIN == "JTHBK1GGXF2728528");
+//var defalutcar = new Car(Id: 0, Make: "No Make", Model: "No Model", ManufactureYear: 0, VIN: "No VIN",  Color: "red", MaxSpeed: 290);
+
+//cars = [defalutcar];
+//var result = cars.Single();
+
+//var result = cars.Single(IsFord);
+
+//CarRepository.PrintCars([result]);
+
+//static bool IsFord(Car car) => car.Make == "Ford";
+
+//cars = [];
+//var result = cars.SingleOrDefault();
+
+//CarRepository.PrintCars([result]);
+
+
+#endregion
