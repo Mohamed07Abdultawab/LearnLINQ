@@ -140,3 +140,28 @@ var cars = CarRepository.GetCars();
 
 
 #endregion
+
+
+#region #6 immediate execution vs deferred execution
+
+//var result = cars.Where(IsVolvo);//deferred execution
+//static bool IsVolvo(Car car)
+//{
+//    //if i make a breakpoint here the program will not stop because this is deferred execution
+//    return car.Make == "Volvo";
+//}
+
+
+//var result = cars.First(IsVolvo);//immediate execution
+//static bool IsVolvo(Car car)
+//{
+//    //if i make a breakpoint here the program will stop because this is immediat4e execution
+//    return car.Make == "Volvo";
+//}
+
+
+
+
+
+
+#endregion
