@@ -1,4 +1,5 @@
-﻿using LinqForCSharpDevelopers;
+﻿using LearnLINQ;
+using LinqForCSharpDevelopers;
 
 var cars = CarRepository.GetCars();
 
@@ -160,8 +161,59 @@ var cars = CarRepository.GetCars();
 //}
 
 
+#endregion
 
 
+#region Data Ordering
+//part 1
+//var result = from c in cars
+//             orderby c.MaxSpeed
+//             select c;
 
+//var result = cars.OrderBy(c => c.ManufactureYear);
+
+//var result = cars.OrderByDescending(ordering);
+
+//CarRepository.PrintCars(result);
+
+//part 2
+//static int ordering(Car c) => c.ManufactureYear;
+
+//var result = from c in cars
+//             orderby c.Make, c.Model, c.MaxSpeed descending
+//             select c;
+
+
+//var result = cars.OrderBy(c => c.Make)
+//        .ThenBy(c => c.Model)
+//        .ThenByDescending(c => c.MaxSpeed);
+
+//CarRepository.PrintCars(result);
+
+//part 3
+//int[] numbers = [5, 3, 8, 1, 4];
+//string[] names = ["admed","mohamed","karem","ali","bary"];
+
+//var result = numbers.Order();
+//var nameresult = names.Order();
+
+//foreach (int n in result)
+//{
+//    Console.WriteLine(n);
+//}
+
+//foreach(int n in result.OrderDescending())
+//{
+//    Console.WriteLine(n);
+//}
+
+//foreach (string name in nameresult.Order())
+//{
+//    Console.WriteLine(name);
+//}
+
+//cutome comparer
+//var result = cars.Order(new CarComparer());
+//CarRepository.PrintCars(result);
 
 #endregion
