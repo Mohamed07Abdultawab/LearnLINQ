@@ -217,3 +217,21 @@ var cars = CarRepository.GetCars();
 //CarRepository.PrintCars(result);
 
 #endregion
+
+
+
+
+#region #8 any() and all()
+
+//any get any element that match the condition
+//cars = [];
+//var result = cars.Any(c => c.Make == "Ford" || c.Color == "bule");
+
+//Console.WriteLine(result? "found" : "not found");
+
+//all check if all the elements match the condition
+//var result = cars.All(c => c.ManufactureYear > 2000);
+//Console.WriteLine(result ? "all cars are new" : "not all cars are new");
+
+
+#endregion
