@@ -287,22 +287,22 @@ var cars = CarRepository.GetCars();
 //var result = numbers.Sum();
 //Console.WriteLine($"The sum is: {result}");
 
-var expenses = ExpensesRepository.GetExpenses();
+//var expenses = ExpensesRepository.GetExpenses();
 
 
-var totalIncome = expenses
-    .Where(e => e.Type == ExpensesType.Income)
-    .Sum(e => e.Amount);//select the Amount property and sum it
+//var totalIncome = expenses
+//    .Where(e => e.Type == ExpensesType.Income)
+//    .Sum(e => e.Amount);//select the Amount property and sum it
 
 
 
-var totalOutcome = expenses
-    .Where(e => e.Type == ExpensesType.Outcome)
-    .Sum (e => e.Amount);
+//var totalOutcome = expenses
+//    .Where(e => e.Type == ExpensesType.Outcome)
+//    .Sum (e => e.Amount);
 
-ExpensesRepository.PrintDate(expenses);
-Console.WriteLine($"Total Income: {totalIncome:F2}");
-Console.WriteLine($"Total Outcome: {totalOutcome:F2}");
+//ExpensesRepository.PrintDate(expenses);
+//Console.WriteLine($"Total Income: {totalIncome:F2}");
+//Console.WriteLine($"Total Outcome: {totalOutcome:F2}");
 
 
 /* concept of interpolated strings
@@ -322,5 +322,63 @@ P2: 12.34%
 E2: 1.23E+03
 
  */
+
+#endregion
+
+
+#region #12 Average
+
+//double[] numbers = [5.7, 10.2, 15, 20, 25];
+//var result = numbers.Average();
+//Console.WriteLine($"The average is: {result:F2}");
+
+//var speedAverage = cars
+//    .Where(c => c.Make == "Ford")
+//    .Average(c => c.MaxSpeed);
+//Console.WriteLine($"The average car speed is: {speedAverage:F2} km/h");
+
+
+//string[] names = ["Ahmed", "Mohamed", "Karem", "Ali", "Bary"];
+//var nameLengthAverage = names.Average(n => n.Length);
+//Console.WriteLine($"The average name length is: {nameLengthAverage:F2} characters");
+
+
+//string[] numbers = ["10", "20", "30", "404444", "50"];
+//var numberAverage = numbers.Average(n => int.Parse(n));
+//Console.WriteLine($"The average number is: {numberAverage:N2}");
+
+//var expenses = ExpensesRepository.GetExpenses();
+//var averageIncome = expenses
+//    .Where(e => e.Type == ExpensesType.Income)
+//    .Average(e => e.Amount);
+//Console.WriteLine($"The average income is: {averageIncome:F2}");
+
+#endregion
+
+
+#region #13 Min and MinBy and Max and MaxBy
+
+//int[] numbers = [5, 10, 3, 8, 1, 4];
+//var maxNumber = numbers.Max();
+//Console.WriteLine($"The maximum number is: {maxNumber}");
+
+
+//var maxSpeed = cars.Max(c => c.MaxSpeed);
+//Console.WriteLine($"The maximum car speed is: {maxSpeed} km/h");
+
+//var maxMakeLength = cars.Max(c => c.Make.Length);
+//Console.WriteLine($"The maximum car make length is: {maxMakeLength} characters");
+
+//var minSpeed = cars.Min(c => c.MaxSpeed);
+//Console.WriteLine($"The minimum car speed is: {minSpeed} km/h");
+
+
+//maxBy and minBy new in .NET 6
+//Car FastertCar = cars.MaxBy(c => c.MaxSpeed);
+//CarRepository.PrintCars([FastertCar]);
+
+//Car LowerCar = cars.MinBy(c => c.MaxSpeed);
+//CarRepository.PrintCars([LowerCar]);
+
 
 #endregion
