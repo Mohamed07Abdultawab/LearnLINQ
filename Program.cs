@@ -382,3 +382,54 @@ E2: 1.23E+03
 
 
 #endregion
+
+#region Aggregate
+
+//int[] numbers = [1, 2, 3, 4, 5];
+
+//var result = numbers.Aggregate((acc, next) =>
+//    {
+//    Console.WriteLine($"accc: {acc}, next: {next}");
+//        return acc + next;
+//    });
+
+//Console.WriteLine($"The aggregate sum is: {result}");
+
+
+//string sentence = "LINQ is a powerful feature in C#";
+//string[] words = sentence.Split(' ');
+//string reversed = words.Aggregate((acc, next) =>
+//{
+//    Console.WriteLine($"acc: {acc}, next: {next}");
+//    return next + " " + acc;
+//});
+//Console.WriteLine($"Reversed sentence: {reversed}");
+
+//part 2
+
+//int[] numbers = [1, 2, 3, 4, 5,6,7,8,9,10];
+////with seed value`
+//var result = numbers.Aggregate(0,(total, next) =>
+//    {
+//        Console.WriteLine($"total: {total}, next: {next}");
+//       return next % 2 == 0 ? total + 1 : total;
+//    });
+
+//Console.WriteLine($"The aggregate sum of even numbers is: {result}");
+
+
+////adjust in final result
+//string[] fruits = ["apple", "banana", "orange", "grape", "kiwi"];
+//string longestFruitName = fruits.Aggregate("banana", (longest, next) =>
+
+//{
+//    Console.WriteLine($"longest: {longest}, next: {next}");
+//    return next.Length > longest.Length ? next : longest;
+//},
+//    //return the final result as upper case
+//    fruits => fruits.ToUpper());
+
+//Console.WriteLine($"The longest fruit name is: {longestFruitName}");
+
+
+#endregion
