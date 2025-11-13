@@ -433,3 +433,33 @@ E2: 1.23E+03
 
 
 #endregion
+
+
+#region Shape using Select
+
+//var result = from c in cars
+//             select new CarDto(c.Id,c.Make,$"{c.Model} : {c.Color}", c.ManufactureYear);
+
+
+//var result = cars.Select(c => new CarDto(c.Id, c.Make, c.Model, c.ManufactureYear));
+
+//var result = cars.Select((c,i) => new CarDto(c.Id, c.Make, c.Model, c.ManufactureYear,i));//with index
+
+//foreach (var carDto in result)
+//{
+//    Console.WriteLine(carDto.Index);
+//    Console.WriteLine($"\t{carDto.Make}\t{carDto.Model}\t{carDto.Year}\t{carDto.Index}");
+//}
+
+//can also customize many properties
+//var result = cars.Select((c,i) => new CarDto(c.Id, c.Make, c.Model, c.ManufactureYear,i,$"{i} - {c.MaxSpeed}"));
+
+//foreach (var carDto in result)
+//{
+//    Console.WriteLine(carDto.Index);
+//    Console.WriteLine($"\t{carDto.Make}\t{carDto.Model}\t{carDto.Year}\t{carDto.Index}\t{carDto.Dummy}");
+//}
+
+
+
+#endregion
