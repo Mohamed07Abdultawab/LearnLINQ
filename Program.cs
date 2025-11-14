@@ -463,3 +463,111 @@ E2: 1.23E+03
 
 
 #endregion
+
+IEnumerable<Car2> cars2 =
+    [
+        new Car2(
+            Id: 1,
+            Make: "Ford",
+            Model: "Mustang",
+            ManufactureYear: 2020,
+            VIN: "1FA6P8TH0L5100001",
+            Color: "Red",
+            MaxSpeed: 250,
+            Safety: ["Airbags", "ABS", "Traction Control"]
+        ),
+        new Car2(
+            Id: 2,
+            Make: "Volvo",
+            Model: "XC90",
+            ManufactureYear: 2021,
+            VIN: "YV4A22PK0M1234567",
+            Color: "Blue",
+            MaxSpeed: 230,
+            Safety: ["Airbags", "Lane Assist", "Blind Spot Monitoring"]
+        ),
+        new Car2(
+            Id: 3,
+            Make: "Toyota",
+            Model: "Camry",
+            ManufactureYear: 2019,
+            VIN: "4T1BF1FK5KU123456",
+            Color: "White",
+            MaxSpeed: 220,
+            Safety: ["Airbags", "ABS", "Pre-Collision System"]
+        ),
+        new Car2(
+            Id: 4,
+            Make: "Honda",
+            Model: "Civic",
+            ManufactureYear: 2018,
+            VIN: "2HGFC2F59JH123456",
+            Color: "Black",
+            MaxSpeed: 210,
+            Safety: ["Airbags", "Lane Departure Warning", "Adaptive Cruise Control"]
+        ),
+        new Car2(
+            Id: 5,
+            Make: "BMW",
+            Model: "X5",
+            ManufactureYear: 2022,
+            VIN: "5UXCR6C05M9D12345",
+            Color: "Silver",
+            MaxSpeed: 240,
+            Safety: ["Airbags", "ABS", "Parking Sensors"]
+        )
+    ];
+
+#region SelectMany
+
+//without using select many
+//List<string> allSafety = [];
+//foreach (var car in cars2)
+//{
+//    foreach(var safety in car.Safety)
+//    {
+//        allSafety.Add(safety);
+//    }
+//}
+//foreach(var safety in allSafety.Distinct())
+//{
+//    Console.WriteLine(safety);
+//}
+
+//var allValues = from c in cars2
+//                from s in c.Safety
+//                select s;
+//foreach (var safety in allValues.Distinct())
+//{
+//    Console.WriteLine(safety);
+//}
+
+//using select many
+//var allValues = cars2.SelectMany(c => c.Safety);
+//foreach (var safety in allValues.Distinct())
+//{
+//    Console.WriteLine(safety);
+//}
+
+//var allValues = cars2.SelectMany((c,i) => c.Safety.Select(s => $"{i} : {s}"));
+//foreach (var safety in allValues.Distinct())
+//{
+//    Console.WriteLine(safety);
+//}
+
+//var allValues = cars2.SelectMany(c => c.Safety, (c,s) => new { DisplayValues = $"{c.Make} - {s}"});
+//foreach (var safety in allValues.Distinct())
+//{
+//    Console.WriteLine(safety);
+//}
+
+
+
+//var allValues = cars2.Select(c => new CarDto(c.Id, c.Make, c.Model, c.ManufactureYear, string.Join(',', c.Safety)));
+//foreach (var carDto in allValues)
+//{
+//    Console.WriteLine($"{carDto.Make}\t{carDto.Model}\t{carDto.Year}\t{carDto.Safety}");
+//}
+
+
+#endregion

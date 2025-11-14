@@ -10,14 +10,24 @@ public record Car(
     int MaxSpeed
 );
 
+public record Car2(
+    int Id,
+    string Make,
+    string Model,
+    int ManufactureYear,
+    string VIN,
+    string Color,
+    int MaxSpeed,
+    IEnumerable<string> Safety
+);
+
 
 public record CarDto(
     int Id,
     string Make,
     string Model,
     int Year,
-    int Index,
-    string Dummy
+    string Safety
     );
 
 public static class CarRepository
