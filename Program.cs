@@ -515,6 +515,16 @@ IEnumerable<Car2> cars2 =
             Color: "Silver",
             MaxSpeed: 240,
             Safety: ["Airbags", "ABS", "Parking Sensors"]
+        ),
+        new Car2(
+            Id: 5,
+            Make: "BMW",
+            Model: "X5",
+            ManufactureYear: 2022,
+            VIN: "5UXCR6C05M9D12345",
+            Color: "Silver",
+            MaxSpeed: 240,
+            Safety: ["Airbags", "ABS", "Parking Sensors"]
         )
     ];
 
@@ -569,5 +579,26 @@ IEnumerable<Car2> cars2 =
 //    Console.WriteLine($"{carDto.Make}\t{carDto.Model}\t{carDto.Year}\t{carDto.Safety}");
 //}
 
+
+#endregion
+
+
+#region Distinct and DistinctBy
+//distinct
+//int[] numbers = [1, 2, 3, 2, 4, 5, 1, 6, 3, 7, 8, 5];
+//var distinctNumbers = numbers.Distinct();
+//foreach (var n in distinctNumbers)
+//{
+//    Console.WriteLine(n);
+//}
+
+
+
+//distinct by
+//var allValues = cars2.DistinctBy(c => c.Id);//exit two cars with same id (id 5)
+//foreach (var item in allValues)
+//{
+//    Console.WriteLine(item);
+//}
 
 #endregion
