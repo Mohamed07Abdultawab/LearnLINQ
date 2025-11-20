@@ -602,3 +602,22 @@ IEnumerable<Car2> cars2 =
 //}
 
 #endregion
+
+
+#region GroupBy
+
+//var result = from c in cars
+//             group c by new { c.Make, c.Color };
+
+var result = cars.GroupBy(c => new { c.Make, c.Color });
+
+foreach (var group in result)
+{
+    Console.WriteLine($"Make and Color: {group.Key} - Total Cars: {group.Count()}");
+    CarRepository.PrintCars(group);
+}
+
+
+
+
+#endregion
