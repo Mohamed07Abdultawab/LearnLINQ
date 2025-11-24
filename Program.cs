@@ -1,4 +1,6 @@
-﻿using LearnLINQ;
+﻿using System.Security.Cryptography;
+using System.Text.RegularExpressions;
+using LearnLINQ;
 using LinqForCSharpDevelopers;
 using YouTubeLINQ;
 
@@ -464,69 +466,69 @@ E2: 1.23E+03
 
 #endregion
 
-IEnumerable<Car2> cars2 =
-    [
-        new Car2(
-            Id: 1,
-            Make: "Ford",
-            Model: "Mustang",
-            ManufactureYear: 2020,
-            VIN: "1FA6P8TH0L5100001",
-            Color: "Red",
-            MaxSpeed: 250,
-            Safety: ["Airbags", "ABS", "Traction Control"]
-        ),
-        new Car2(
-            Id: 2,
-            Make: "Volvo",
-            Model: "XC90",
-            ManufactureYear: 2021,
-            VIN: "YV4A22PK0M1234567",
-            Color: "Blue",
-            MaxSpeed: 230,
-            Safety: ["Airbags", "Lane Assist", "Blind Spot Monitoring"]
-        ),
-        new Car2(
-            Id: 3,
-            Make: "Toyota",
-            Model: "Camry",
-            ManufactureYear: 2019,
-            VIN: "4T1BF1FK5KU123456",
-            Color: "White",
-            MaxSpeed: 220,
-            Safety: ["Airbags", "ABS", "Pre-Collision System"]
-        ),
-        new Car2(
-            Id: 4,
-            Make: "Honda",
-            Model: "Civic",
-            ManufactureYear: 2018,
-            VIN: "2HGFC2F59JH123456",
-            Color: "Black",
-            MaxSpeed: 210,
-            Safety: ["Airbags", "Lane Departure Warning", "Adaptive Cruise Control"]
-        ),
-        new Car2(
-            Id: 5,
-            Make: "BMW",
-            Model: "X5",
-            ManufactureYear: 2022,
-            VIN: "5UXCR6C05M9D12345",
-            Color: "Silver",
-            MaxSpeed: 240,
-            Safety: ["Airbags", "ABS", "Parking Sensors"]
-        ),
-        new Car2(
-            Id: 5,
-            Make: "BMW",
-            Model: "X5",
-            ManufactureYear: 2022,
-            VIN: "5UXCR6C05M9D12345",
-            Color: "Silver",
-            MaxSpeed: 240,
-            Safety: ["Airbags", "ABS", "Parking Sensors"]
-        )
-    ];
+//IEnumerable<Car2> cars2 =
+//    [
+//        new Car2(
+//            Id: 1,
+//            Make: "Ford",
+//            Model: "Mustang",
+//            ManufactureYear: 2020,
+//            VIN: "1FA6P8TH0L5100001",
+//            Color: "Red",
+//            MaxSpeed: 250,
+//            Safety: ["Airbags", "ABS", "Traction Control"]
+//        ),
+//        new Car2(
+//            Id: 2,
+//            Make: "Volvo",
+//            Model: "XC90",
+//            ManufactureYear: 2021,
+//            VIN: "YV4A22PK0M1234567",
+//            Color: "Blue",
+//            MaxSpeed: 230,
+//            Safety: ["Airbags", "Lane Assist", "Blind Spot Monitoring"]
+//        ),
+//        new Car2(
+//            Id: 3,
+//            Make: "Toyota",
+//            Model: "Camry",
+//            ManufactureYear: 2019,
+//            VIN: "4T1BF1FK5KU123456",
+//            Color: "White",
+//            MaxSpeed: 220,
+//            Safety: ["Airbags", "ABS", "Pre-Collision System"]
+//        ),
+//        new Car2(
+//            Id: 4,
+//            Make: "Honda",
+//            Model: "Civic",
+//            ManufactureYear: 2018,
+//            VIN: "2HGFC2F59JH123456",
+//            Color: "Black",
+//            MaxSpeed: 210,
+//            Safety: ["Airbags", "Lane Departure Warning", "Adaptive Cruise Control"]
+//        ),
+//        new Car2(
+//            Id: 5,
+//            Make: "BMW",
+//            Model: "X5",
+//            ManufactureYear: 2022,
+//            VIN: "5UXCR6C05M9D12345",
+//            Color: "Silver",
+//            MaxSpeed: 240,
+//            Safety: ["Airbags", "ABS", "Parking Sensors"]
+//        ),
+//        new Car2(
+//            Id: 5,
+//            Make: "BMW",
+//            Model: "X5",
+//            ManufactureYear: 2022,
+//            VIN: "5UXCR6C05M9D12345",
+//            Color: "Silver",
+//            MaxSpeed: 240,
+//            Safety: ["Airbags", "ABS", "Parking Sensors"]
+//        )
+//    ];
 
 #region SelectMany
 
@@ -609,15 +611,97 @@ IEnumerable<Car2> cars2 =
 //var result = from c in cars
 //             group c by new { c.Make, c.Color };
 
-var result = cars.GroupBy(c => new { c.Make, c.Color });
+//var result = cars.GroupBy(c => new { c.Make, c.Color });
 
+//foreach (var group in result)
+//{
+//    Console.WriteLine($"Make and Color: {group.Key} - Total Cars: {group.Count()}");
+//    CarRepository.PrintCars(group);
+//}
+
+
+//part 2 use count
+//var result = from c in cars
+//             group c by new { c.Make, c.Color } into g
+//             select new
+//             {
+//                 g.Key,
+//                 Cars = g,
+//                 Count = g.Count(),             
+//             };
+//foreach (var group in result)
+//{
+//    Console.WriteLine($"Make and Color: {group.Key} - Total Cars: {group.Count}");
+//    CarRepository.PrintCars(group.Cars);
+//}  
+
+
+//var result = cars.GroupBy(c => new { c.Make, c.Color })
+//             .Select(g => new
+//             {
+//                 g.Key,
+//                 Cars = g,
+//                 Count = g.Count()
+//             });
+//foreach(var group in result)
+//{
+//    Console.WriteLine($"Make and Color: {group.Key}, - Total cars: {group.Count}");
+//    CarRepository.PrintCars(group.Cars);
+//}
+
+//without using select
+//var result = cars.
+//    GroupBy(c => new { c.Make, c.Color }, (key, group) => new
+//    {
+//        Key = key,
+//        Cars = group,
+//        Count = group.Count()
+//    });
+//foreach (var group in result)
+//{
+//    Console.WriteLine($"Make and Color: {group.Key}, - Total cars: {group.Count}");
+//    CarRepository.PrintCars(group.Cars);
+//}
+
+
+
+
+//Exercise
+
+
+//my solution
+var result = cars.GroupBy(c => c.MaxSpeed/100 , (key, group) => new
+                                              {
+                                                  Key = key,
+                                                  Cars = group,
+                                                  Count = group.Count(),
+                                                  SpeedGroup = key * 100 + " - " + ((key + 1) * 100) + " km/h"
+                                              }).OrderBy(g => g.SpeedGroup);
 foreach (var group in result)
 {
-    Console.WriteLine($"Make and Color: {group.Key} - Total Cars: {group.Count()}");
-    CarRepository.PrintCars(group);
+    Console.WriteLine($"Speed Group: {group.SpeedGroup}, Total Cars: {group.Count}");
+    CarRepository.PrintCars(group.Cars.OrderBy(c => c.MaxSpeed));
 }
 
 
 
+//teatcher solution
+//var result = cars.GroupBy(c => GetSpeedRange(c), (key, group) => new
+//{
+//    Key = key,
+//    Cars = group,
+//    Count = group.Count(),
+//});
+//foreach (var group in result)
+//{
+//    Console.WriteLine($"Speed Group: {group.Key}, Total Cars: {group.Count}");
+//    CarRepository.PrintCars(group.Cars.OrderBy(c => c.MaxSpeed));
+//}
+
+//static string GetSpeedRange(Car car)
+//{
+//    var speedRange = Math.Abs(car.MaxSpeed / 100);
+//    return $"{speedRange} to {speedRange + 99} km/h";
+//}
 
 #endregion
