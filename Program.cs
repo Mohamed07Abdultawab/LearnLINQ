@@ -670,18 +670,18 @@ E2: 1.23E+03
 
 
 //my solution
-var result = cars.GroupBy(c => c.MaxSpeed/100 , (key, group) => new
-                                              {
-                                                  Key = key,
-                                                  Cars = group,
-                                                  Count = group.Count(),
-                                                  SpeedGroup = key * 100 + " - " + ((key + 1) * 100) + " km/h"
-                                              }).OrderBy(g => g.SpeedGroup);
-foreach (var group in result)
-{
-    Console.WriteLine($"Speed Group: {group.SpeedGroup}, Total Cars: {group.Count}");
-    CarRepository.PrintCars(group.Cars.OrderBy(c => c.MaxSpeed));
-}
+//var result = cars.GroupBy(c => c.MaxSpeed/100 , (key, group) => new
+//                                              {
+//                                                  Key = key,
+//                                                  Cars = group,
+//                                                  Count = group.Count(),
+//                                                  SpeedGroup = key * 100 + " - " + ((key + 1) * 100) + " km/h"
+//                                              }).OrderBy(g => g.SpeedGroup);
+//foreach (var group in result)
+//{
+//    Console.WriteLine($"Speed Group: {group.SpeedGroup}, Total Cars: {group.Count}");
+//    CarRepository.PrintCars(group.Cars.OrderBy(c => c.MaxSpeed));
+//}
 
 
 
@@ -703,5 +703,57 @@ foreach (var group in result)
 //    var speedRange = Math.Abs(car.MaxSpeed / 100);
 //    return $"{speedRange} to {speedRange + 99} km/h";
 //}
+
+#endregion
+
+
+#region AggregateBy
+
+List<Employee> employees = [
+    new Employee("Ahmed", "IT", 6000),
+    new Employee("Mohamed", "HR", 4500),
+    new Employee("Karem", "IT", 7000),
+    new Employee("Ali", "Finance", 5000),
+    new Employee("Bary", "HR", 4800),
+    new Employee("Sara", "Finance", 5200),
+    new Employee("Lina", "IT", 6500)
+];
+
+//var salaryByDepartment = employees.GroupBy(e => e.Department, (key, dept) => new
+//{
+//    Department = key,
+//    TotalSalary = dept.Sum(e => e.Salary)
+//});
+//foreach(var dept in salaryByDepartment) 
+//{
+//    Console.WriteLine($"Department: {dept.Department}, Total Salary: {dept.TotalSalary:F2}");
+//}
+
+//
+//ex 1
+//var result = employees.AggregateBy(e => e.Department,seed:0.0,(total,employee) => total + employee.Salary);
+
+//foreach(var item in result)
+//{
+//    Console.WriteLine($"Department: {item.Key}, Total Salary: {item.Value:F2}");
+//}
+
+//ex 2
+//var makesWithModels = cars.AggregateBy(
+//    c => c.Make,
+//    seed: new List<string>(),
+//    (models, car) => [.. models, car.Model]
+//    );
+
+//foreach (var item in makesWithModels)
+//{
+//    Console.WriteLine($"Make: {item.Key}, Models: {string.Join(", ", item.Value.Order().Distinct())}");
+//    //Console.WriteLine($"Make: {item.Key}");
+//    //foreach(var model in item.Value.Order().Distinct())
+//    //{
+//    //    Console.WriteLine($"\tModel: {model}");
+//    //}
+//}
+
 
 #endregion
